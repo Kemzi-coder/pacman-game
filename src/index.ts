@@ -1,5 +1,5 @@
 import "normalize.css";
-import "./styles/index.css";
+import "./styles/index.scss";
 
 const canvas = document.getElementById("app");
 
