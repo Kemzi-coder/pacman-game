@@ -1,6 +1,8 @@
 import "normalize.css";
+import {Boundary} from "./modules/boundary";
+import {Layout} from "./modules/layout";
+import {Pacman} from "./modules/pacman";
 import "./styles/index.scss";
-import {Layout} from "./core/objects/layout";
 
 const canvas: HTMLCanvasElement | null = document.querySelector("#app");
 
@@ -29,4 +31,15 @@ const layout = new Layout({
 	]
 });
 
-layout.draw(canvasContext);
+const pacman = new Pacman({
+	position: {
+		x: Boundary.width + Boundary.width / 2,
+		y: Boundary.height + Boundary.height / 2
+	},
+	velocity: {x: 0, y: 0}
+});
+
+pacman.initMovement(canvasContext, layout, {
+	width: canvas.width,
+	height: canvas.height
+});

@@ -1,14 +1,15 @@
 import {Boundary} from "../boundary";
-import {LayoutObject} from "./layout.types";
+import {ILayout} from "../../common/interfaces/layout";
+import {LayoutConstructor, LayoutProp} from "../../common/types/layout";
 
-class Layout implements LayoutObject {
-	layout;
+class Layout implements ILayout {
+	private layout: LayoutProp;
 
-	constructor({layout}: Pick<LayoutObject, "layout">) {
+	constructor({layout}: LayoutConstructor) {
 		this.layout = layout;
 	}
 
-	draw(ctx: CanvasRenderingContext2D) {
+	draw(ctx: CanvasRenderingContext2D): void {
 		const boundaries: Boundary[] = [];
 
 		this.layout.forEach((row, i) => {

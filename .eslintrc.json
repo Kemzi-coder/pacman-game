@@ -4,12 +4,13 @@
 		"es6": true
 	},
 	"extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
-	"plugins": ["prettier"],
+	"plugins": ["prettier", "import"],
 	"parserOptions": {
 		"project": "./tsconfig.json"
 	},
 	"rules": {
 		"prettier/prettier": "error",
-		"no-console": "off"
+		"no-console": "off",
+		"import/prefer-default-export": "warn"
 	}
 }
