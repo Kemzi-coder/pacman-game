@@ -6,10 +6,16 @@ class Boundary implements IBoundary {
 
 	static height = 40;
 
+	width;
+
+	height;
+
 	position;
 
 	constructor({position}: BoundaryConstructor) {
 		this.position = position;
+		this.width = Boundary.width;
+		this.height = Boundary.height;
 	}
 
 	draw(ctx: CanvasRenderingContext2D): void {

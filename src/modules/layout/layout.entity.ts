@@ -1,6 +1,10 @@
 import {Boundary} from "../boundary";
 import {ILayout} from "../../common/interfaces/layout";
-import {LayoutConstructor, LayoutProp} from "../../common/types/layout";
+import {
+	LayoutConstructor,
+	LayoutObject,
+	LayoutProp
+} from "../../common/types/layout";
 
 class Layout implements ILayout {
 	private layout: LayoutProp;
@@ -9,14 +13,14 @@ class Layout implements ILayout {
 		this.layout = layout;
 	}
 
-	draw(ctx: CanvasRenderingContext2D): void {
-		const boundaries: Boundary[] = [];
+	toObject(): LayoutObject {
+		const layout: LayoutObject = {boundaries: []};
 
 		this.layout.forEach((row, i) => {
 			row.forEach((symbol, j) => {
 				switch (symbol) {
 					case "-":
-						boundaries.push(
+						layout.boundaries.push(
 							new Boundary({
 								position: {
 									x: Boundary.width * j,
@@ -31,7 +35,15 @@ class Layout implements ILayout {
 			});
 		});
 
-		boundaries.forEach(boundary => boundary.draw(ctx));
+		return layout;
+	}
+
+	draw(ctx: CanvasRenderingContext2D): void {
+		const {boundaries} = this.toObject();
+
+		boundaries.forEach(boundary => {
+			boundary.draw(ctx);
+		});
 	}
 }
 

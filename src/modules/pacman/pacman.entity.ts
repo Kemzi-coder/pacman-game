@@ -16,7 +16,7 @@ class Pacman implements IPacman {
 		this.position = position;
 		this.velocity = velocity;
 		this.radius = 15;
-		this.movement = new PacmanMovement();
+		this.movement = new PacmanMovement(this);
 	}
 
 	draw(ctx: CanvasRenderingContext2D): void {
@@ -41,7 +41,7 @@ class Pacman implements IPacman {
 		layout: Layout,
 		canvasDims: {width: number; height: number}
 	): void {
-		this.movement.initMovement(ctx, this, layout, canvasDims);
+		this.movement.initMovement(ctx, layout, canvasDims);
 	}
 }
 
