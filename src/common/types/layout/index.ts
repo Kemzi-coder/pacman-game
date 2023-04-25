@@ -1,3 +1,3 @@
-import {LayoutProp, LayoutConstructor, LayoutObject} from "./layout.types";
+import {MapProp, LayoutConstructor, LayoutObject} from "./layout.types";
 
-export type {LayoutProp, LayoutConstructor, LayoutObject};
+export type {MapProp, LayoutConstructor, LayoutObject};

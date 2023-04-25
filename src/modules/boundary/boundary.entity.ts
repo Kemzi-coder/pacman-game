@@ -12,20 +12,17 @@ class Boundary implements IBoundary {
 
 	position;
 
-	constructor({position}: BoundaryConstructor) {
+	image;
+
+	constructor({position, image}: BoundaryConstructor) {
 		this.position = position;
 		this.width = Boundary.width;
 		this.height = Boundary.height;
+		this.image = image;
 	}
 
 	draw(ctx: CanvasRenderingContext2D): void {
-		ctx.fillStyle = "blue";
-		ctx.fillRect(
-			this.position.x,
-			this.position.y,
-			Boundary.width,
-			Boundary.height
-		);
+		ctx.drawImage(this.image, this.position.x, this.position.y);
 	}
 }
 

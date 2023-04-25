@@ -1,9 +1,5 @@
-import type {Boundary} from "../../../modules/boundary";
+type MapProp = string[][];
 
-type LayoutProp = string[][];
+type LayoutConstructor = {map: MapProp};
 
-type LayoutObject = {boundaries: Boundary[]};
-
-type LayoutConstructor = {layout: LayoutProp};
-
-export type {LayoutProp, LayoutConstructor, LayoutObject};
+export type {MapProp, LayoutConstructor};

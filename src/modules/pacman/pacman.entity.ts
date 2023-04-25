@@ -1,11 +1,7 @@
 import {IPacman} from "../../common/interfaces/pacman";
-import {MovementProp, PacmanConstructor} from "../../common/types/pacman";
-import type {Layout} from "../layout";
-import PacmanMovement from "./pacmanMovement.component";
+import {PacmanConstructor} from "../../common/types/pacman";
 
 class Pacman implements IPacman {
-	private movement: MovementProp;
-
 	radius;
 
 	position;
@@ -16,7 +12,6 @@ class Pacman implements IPacman {
 		this.position = position;
 		this.velocity = velocity;
 		this.radius = 15;
-		this.movement = new PacmanMovement(this);
 	}
 
 	draw(ctx: CanvasRenderingContext2D): void {
@@ -34,14 +29,6 @@ class Pacman implements IPacman {
 		this.draw(ctx);
 		this.position.x += this.velocity.x;
 		this.position.y += this.velocity.y;
-	}
-
-	initMovement(
-		ctx: CanvasRenderingContext2D,
-		layout: Layout,
-		canvasDims: {width: number; height: number}
-	): void {
-		this.movement.initMovement(ctx, layout, canvasDims);
 	}
 }
 

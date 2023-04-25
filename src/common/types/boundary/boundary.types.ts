@@ -3,6 +3,6 @@ type PositionProp = {
 	y: number;
 };
 
-type BoundaryConstructor = {position: PositionProp};
+type BoundaryConstructor = {position: PositionProp; image: CanvasImageSource};
 
 export type {PositionProp, BoundaryConstructor};

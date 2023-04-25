@@ -1,7 +1,3 @@
-import type {PacmanMovement} from "../../../modules/pacman";
-
-type MovementProp = PacmanMovement;
-
 type PositionProp = {x: number; y: number};
 
 type VelocityProp = {x: number; y: number};
@@ -11,4 +7,4 @@ type PacmanConstructor = {
 	velocity: VelocityProp;
 };
 
-export type {MovementProp, PacmanConstructor, PositionProp, VelocityProp};
+export type {PacmanConstructor, PositionProp, VelocityProp};

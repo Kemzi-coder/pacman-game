@@ -1,16 +1,3 @@
-import {
-	VelocityProp,
-	MovementProp,
-	PacmanConstructor,
-	PositionProp
-} from "./pacman.types";
-import {MoveKey, MoveKeyObject} from "./pacmanMovement.types";
+import {VelocityProp, PacmanConstructor, PositionProp} from "./pacman.types";
 
-export type {
-	MovementProp,
-	PacmanConstructor,
-	PositionProp,
-	VelocityProp,
-	MoveKey,
-	MoveKeyObject
-};
+export type {PacmanConstructor, PositionProp, VelocityProp};
