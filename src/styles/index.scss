@@ -3,3 +3,94 @@ body {
 	color: #fff;
 	font-family: sans-serif;
 }
+
+p {
+	margin: 0;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 16px;
+}
+
+.canvas {
+	margin: 20px 0;
+}
+
+.button {
+	color: #183dd0;
+	font-weight: 600;
+	border: 3px solid #183dd0;
+	border-radius: 12px;
+	background-color: transparent;
+	padding: 4px 8px;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: all 0.2s ease;
+
+	&:hover, &.button--active {
+		background-color: #183dd0;
+		color: #fff;
+	}
+}
+
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.2s ease;
+
+	&--open {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__content {
+		background-color: #000000;
+		border: 3px solid #183dd0;
+		padding: 20px;
+		border-radius: 8px;
+		min-width: 300px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__text {
+		margin-bottom: 12px;
+	}
+
+	&__button {
+		align-self: flex-end;
+	}
+}
+
+.settings {
+	&__item:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	&__button {
+		margin-bottom: 16px;
+	}
+}
+
+.settings-item {
+	&__title {
+		margin-bottom: 8px;
+	}
+
+	&__btns {
+		display: flex;
+		gap: 8px;
+	}
+}

@@ -1,3 +1,3 @@
-import Boundary from "./boundary.entity";
+import Boundary from "./entities/boundary/boundary";
 
 export {Boundary};

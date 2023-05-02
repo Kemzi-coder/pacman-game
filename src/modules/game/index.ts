@@ -1,3 +1,3 @@
-import Game from "./game.entity";
+import Game from "./entities/game/game";
 
 export {Game};

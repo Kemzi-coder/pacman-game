@@ -1,7 +1,8 @@
 {
 	"env": {
 		"browser": true,
-		"es6": true
+		"es6": true,
+		"jest": true
 	},
 	"extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
 	"plugins": ["prettier", "import"],
@@ -11,6 +12,6 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"no-console": "off",
-		"import/prefer-default-export": "warn"
+		"import/prefer-default-export": "off"
 	}
 }

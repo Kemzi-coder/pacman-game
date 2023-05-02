@@ -1,3 +1,3 @@
-import Layout from "./layout.entity";
+import Layout from "./entities/layout/layout";
 
 export {Layout};
