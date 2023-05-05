@@ -1,9 +1,11 @@
 name: CI Pipeline
 on: [push]
 jobs:
-  build:
+  pipeline:
     runs-on: ubuntu-latest
+    environment: Pipeline
     steps:
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Install dependencies
         run: npm install
@@ -11,24 +13,8 @@ jobs:
         run: npm test -- --reporter=html --outputFile=./reports/tests/index.html
       - name: Check code style
         run: npm run eslint -- -f node_modules/eslint-html-reporter/reporter.js -o ./reports/lint/index.html
-  report:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
       - name: Upload lint and test results
         uses: actions/upload-artifact@v3
         with:
           name: ci-results
           path: ./reports/
-      - name: Create commit status
-        uses: octokit/request-action@v2.x
-        with:
-          route: POST /repos/:owner/:repo/statuses/:sha
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.repository }}
-          sha: ${{ github.sha }}
-          state: success
-          context: CI Report
-          description: CI pipeline passed successfully!
