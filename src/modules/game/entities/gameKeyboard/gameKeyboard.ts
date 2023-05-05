@@ -1,11 +1,18 @@
 import {Key, KeyObject, IGameKeyboard} from "../../types/game";
 
 class GameKeyboard implements IGameKeyboard {
-	keys: {[key in Key]: KeyObject} = {
+	private initialKeys: {[key in Key]: KeyObject} = {
 		ArrowUp: {isPressed: false},
 		ArrowDown: {isPressed: false},
 		ArrowLeft: {isPressed: false},
 		ArrowRight: {isPressed: false}
+	};
+
+	keys: {[key in Key]: KeyObject} = {
+		ArrowUp: {...this.initialKeys.ArrowUp},
+		ArrowDown: {...this.initialKeys.ArrowDown},
+		ArrowLeft: {...this.initialKeys.ArrowLeft},
+		ArrowRight: {...this.initialKeys.ArrowRight}
 	};
 
 	lastKey: Key | null = null;
@@ -45,6 +52,16 @@ class GameKeyboard implements IGameKeyboard {
 	removeEventListeners(): void {
 		window.removeEventListener("keydown", this.handleKeyDown);
 		window.removeEventListener("keyup", this.handleKeyUp);
+	}
+
+	reset() {
+		this.keys = {
+			ArrowUp: {...this.initialKeys.ArrowUp},
+			ArrowDown: {...this.initialKeys.ArrowDown},
+			ArrowLeft: {...this.initialKeys.ArrowLeft},
+			ArrowRight: {...this.initialKeys.ArrowRight}
+		};
+		this.lastKey = null;
 	}
 }
 

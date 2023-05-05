@@ -1,3 +1,7 @@
+import type {Ghost} from "../../ghost";
+import type {Layout} from "../../layout";
+import type {Pacman} from "../../pacman";
+
 interface IGame {
 	start: () => void;
 	stop: () => void;
@@ -22,19 +26,24 @@ type DifficultyLevelParamsObject = {
 	ghostCount: number;
 };
 
-type SettingsObject = {
-	difficulty: DifficultyLevel;
-	map: MapVariant;
-	scoreStep: number;
+type Callbacks = {
 	onScore?: (score: number) => void;
 	onWin?: (state: StateObject) => void;
 	onLose?: (state: StateObject) => void;
 };
 
-type ParamsObject = {
-	map: string[][];
+type SettingsObject = {
+	difficulty: DifficultyLevel;
+	map: MapVariant;
 	scoreStep: number;
-} & DifficultyLevelParamsObject;
+} & Callbacks;
+
+type ParamsObject = {
+	scoreStep: number;
+	ghosts: Ghost[];
+	layout: Layout;
+	pacman: Pacman;
+} & Callbacks;
 
 type Key = "ArrowDown" | "ArrowUp" | "ArrowLeft" | "ArrowRight";
 

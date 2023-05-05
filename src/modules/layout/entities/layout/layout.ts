@@ -253,7 +253,7 @@ class Layout implements ILayout {
 
 	draw(
 		ctx: CanvasRenderingContext2D,
-		options: {
+		options?: {
 			onEachBoundaryDraw?: (value: Boundary, index: number) => void;
 			onEachPelletDraw?: (value: Pellet, index: number) => void;
 			onEachPowerUpDraw?: (value: Pellet, index: number) => void;
@@ -261,21 +261,21 @@ class Layout implements ILayout {
 	): void {
 		this.boundaries.forEach((boundary, index) => {
 			boundary.draw(ctx);
-			options.onEachBoundaryDraw?.(boundary, index);
+			options?.onEachBoundaryDraw?.(boundary, index);
 		});
 
 		for (let i = this.pellets.length - 1; i >= 0; i -= 1) {
 			const pellet = this.pellets[i];
 
 			pellet.draw(ctx);
-			options.onEachPelletDraw?.(pellet, i);
+			options?.onEachPelletDraw?.(pellet, i);
 		}
 
 		for (let i = this.powerUps.length - 1; i >= 0; i -= 1) {
 			const powerUp = this.powerUps[i];
 
 			powerUp.draw(ctx);
-			options.onEachPowerUpDraw?.(powerUp, i);
+			options?.onEachPowerUpDraw?.(powerUp, i);
 		}
 	}
 }
